@@ -11,6 +11,7 @@ function App(){
       <Welcome name="zzo" />
       <Welcome name="ha" />
       <Welcome name="yeon" />
+      
     </div>
   )
 }
