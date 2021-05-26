@@ -1,19 +1,43 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-function Welcome(props){
-  return <h1>Hello, {props.name}</h1>
+function formatDate(date){
+  return date.toLocaleDateString();
 }
 
-function App(){
-  return (
-    <div>
-      <Welcome name="zzo" />
-      <Welcome name="ha" />
-      <Welcome name="yeon" />
-      
+function Avatar(props){
+  return(
+    <img src={props.user.avatarUrl} alt={props.user.name}/>
+  )
+}
+
+function UserInfo(props){
+  return(
+    <div className="UserInfo">
+      <Avatar user={props.user}></Avatar>
+      <div>{props.user.name}</div>
     </div>
   )
 }
 
-ReactDOM.render(<App />, document.getElementById("root"));
+function Comment(props){
+  return(
+    <div className="Comment">
+      <UserInfo user={props.author}/>
+      <div className="Comment-text">{props.text}</div>
+      <div className="Comment-text">{formatDate(props.date)}</div>
+    </div>
+  )
+}
+
+const comment={
+  date: new Date(),
+  text: "오늘 밥 뭐먹으깡?",
+  author: {
+  name: "jjohayeon",
+  avatarUrl: "http://jjohayeon.dothome.co.kr/portfolio/assets/img/aboutImg01@2x.jpg"
+  }
+}
+
+
+ReactDOM.render(<Comment date={comment.date} text={comment.text} author={comment.author}/>, document.getElementById("root"));
