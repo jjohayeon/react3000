@@ -8,18 +8,17 @@ import Script from "./components/pages/Script";
 import Portfolio from "./components/pages/Portfolio";
 import Contact from "./components/pages/Contact";
 
-
-function App(){
-    return(
-        <Router>
-            <Route path="/" component={Main}/>
-            <Route path="/about" component={About}/>
-            <Route path="/Reference" component={Reference}/>
-            <Route path="/Youtube" component={Youtube}/>
-            <Route path="/Script" component={Script}/>
-            <Route path="/Portfolio" component={Portfolio}/>
-            <Route path="/Contact" component={Contact}/>
-        </Router>
-    )
+function App() {
+  return (
+    <Router>
+      <Route path="/" exact component={Main} />
+      <Route path="/about" exact component={About} />
+      <Route path="/Reference" exact component={Reference} />
+      <Route path="/Youtube" exact component={Youtube} />
+      <Route path="/Script" exact component={Script} />
+      <Route path="/Portfolio" exact component={Portfolio} />
+      <Route path="/Contact" exact component={Contact} />
+    </Router>
+  );
 }
 export default App;
